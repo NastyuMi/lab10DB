@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">10DB</string>
+    <string name="preference_file_key">smdNameOfkeyyy</string>
+    <string name="name_pref">name_str</string>
+    <string name="age_pref">age_str</string>
+    <string name="gender_pref">gender_TF</string>
+</resources>
