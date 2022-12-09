@@ -10,5 +10,5 @@ data class User(
     @PrimaryKey (autoGenerate = true) val uid: Int = 0,
     @ColumnInfo (name = "name") val name: String?,
     @ColumnInfo (name = "gender") val gender: Boolean?,
-    @ColumnInfo (name = "age") val age: Int
+    @ColumnInfo (name = "age") val age: Int?
 )

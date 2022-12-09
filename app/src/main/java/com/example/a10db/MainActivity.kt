@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
 import com.example.a10db.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -12,7 +13,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var ream: Ream
+    //private lateinit var ream: Ream
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,22 +21,18 @@ class MainActivity : AppCompatActivity() {
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        val name = binding.editName.text.toString()
-        val age = binding.editAge.text.toString()
-
         // Shared Preferences
         binding.buttonForAddSP.setOnClickListener {
 
             val sharedPref = getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE)
             with(sharedPref.edit()) {
-                putString(getString(R.string.app_name),
-                    name)
+                putString(getString(R.string.name_pref),
+                    binding.editName.text.toString())
                 putBoolean(getString(R.string.gender_pref),
                     binding.switchManWoman.isChecked)
                 putInt(getString(R.string.age_pref),
-                    age.toInt())
+                    binding.editAge.text.toString().toInt())
                 apply()
 
                 Toast.makeText(
@@ -54,9 +51,9 @@ class MainActivity : AppCompatActivity() {
             val genderFromBD = sharedPref.getBoolean(getString(R.string.gender_pref), false)
             val ageFromBD = sharedPref.getInt(getString(R.string.age_pref), 0)
 
-            val txt = binding.viewBD.text
+            //val txt = binding.viewBD.text
 
-            var genderString : String? = ""
+            var genderString = ""
 
             if (genderFromBD == true){
                 genderString = "woman"
@@ -64,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                 genderString = "man"
             }
 
-            binding.viewBD.text = "${txt} ${nameFromBD} \t woman: ${genderString} \t age: ${ageFromBD} \n"
+            binding.viewBD.text = "${nameFromBD} \t gender: ${genderString} \t age: ${ageFromBD} \n"
         }
 
         val db = Room.databaseBuilder(applicationContext,
@@ -72,6 +69,9 @@ class MainActivity : AppCompatActivity() {
         ).build()
 
         val userDao = db.userDao()
+        val name = binding.editName.text.toString()
+        val age = binding.editAge.text.toString()
+
 
         binding.buttonForAddRM.setOnClickListener {
             if(name.isNotEmpty() && age.isNotEmpty()) {
@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
 
                 val users = userDao.getAll()
                 var usersInfo = ""
-                var gs = ""
+                var gs  = ""
 
                 users.forEach {
                     if(it.gender == true){

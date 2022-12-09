@@ -134,20 +134,24 @@
         android:id="@+id/woman"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="32dp"
         android:text="Woman"
         android:textColor="@color/woman"
         android:textSize="15pt"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/switchManWoman"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.438" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_name"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/man"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text_add"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="4dp"
         android:layout_toStartOf="@+id/switchManWoman"
         android:minHeight="20dp"
@@ -157,8 +161,10 @@
         android:textSize="15pt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/switchManWoman"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.438" />
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_name"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/edit_age"
@@ -185,10 +191,10 @@
         android:minHeight="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintHorizontal_bias="0.418"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_name"
-        app:layout_constraintVertical_bias="0.074"
+        app:layout_constraintVertical_bias="0.072"
         app:switchMinWidth="40pt"
         app:track="@drawable/gradient"
         app:trackTintMode="multiply" />
@@ -197,15 +203,16 @@
         android:id="@+id/viewBD"
         android:layout_width="320dp"
         android:layout_height="93dp"
+        android:layout_marginTop="5dp"
         android:text="BD\n"
         android:textAlignment="center"
         android:textSize="9pt"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:scrollbars="vertical"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_age"
-        app:layout_constraintVertical_bias="0.839" />
+        app:layout_constraintTop_toBottomOf="@+id/button_forGoToRM" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

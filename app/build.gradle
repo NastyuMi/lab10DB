@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.example.a10db'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.a10db"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -38,7 +38,7 @@ android {
 
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'realm-android'
+//apply plugin: 'realm-android'
 
 dependencies {
 
