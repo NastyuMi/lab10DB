@@ -69,11 +69,14 @@ class MainActivity : AppCompatActivity() {
         ).build()
 
         val userDao = db.userDao()
-        val name = binding.editName.text.toString()
-        val age = binding.editAge.text.toString()
+
 
 
         binding.buttonForAddRM.setOnClickListener {
+
+            val name = binding.editName.text.toString()
+            val age = binding.editAge.text.toString()
+
             if(name.isNotEmpty() && age.isNotEmpty()) {
 
                 val user = User(name = name, gender = binding.switchManWoman.isChecked , age = age.toInt())
